@@ -6,14 +6,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  opened = false;
+  showFiller = false;
+
+  topics = ['Java', 'Javascript', 'Python', 'UI/UX Design', 'Machine Learning', 'Devops', 'Other']
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  onToggleSidebar() {
-    this.opened = !this.opened;
-  }
+  
 
 }
