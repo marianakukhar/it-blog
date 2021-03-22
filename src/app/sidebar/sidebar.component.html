@@ -1,0 +1,16 @@
+<ng-sidebar-container>
+  <ng-sidebar [opened] = "opened">
+    <p>Sidebar content</p>
+    <button (click)="onToggleSidebar()">Close Sidebar</button>
+    <ul class="menu">
+      <li><a href="">1</a></li>
+      <li>2</li>
+      <li>3</li>
+    </ul>
+  </ng-sidebar>
+
+  <div ng-sidebar-content>
+    <button (click)="onToggleSidebar()">Open sidebar</button>
+    <div class="main">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid sit minima consectetur ea autem maiores, cum libero possimus eligendi eaque nihil repellat vel eveniet animi odio obcaecati exercitationem sapiente unde.</div>
+  </div>
+</ng-sidebar-container>
