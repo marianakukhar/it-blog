@@ -1,0 +1,14 @@
+<div class="wrapper">
+<mat-card class="example-card" *ngFor = "let article of articles">
+  <img mat-card-image class="img-article" src="{{article.image}}" alt="img">
+  <mat-card-title class="title">{{article.title}}</mat-card-title>
+  <mat-card-content>
+    <p>
+      {{article.desc}}
+  </mat-card-content>
+  <button mat-raised-button 
+  color="primary" 
+  class="button" 
+  [routerLink]="['articles', article.id]">Read...</button>
+</mat-card>
+</div>

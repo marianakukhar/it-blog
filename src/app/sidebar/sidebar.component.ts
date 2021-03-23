@@ -7,13 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
   showFiller = false;
-
-  topics = ['Java', 'Javascript', 'Python', 'UI/UX Design', 'Machine Learning', 'Devops', 'Other']
-  constructor() { }
+  topics = ['Java', 'Javascript', 'Python', 'UI/UX Design', 'Machine Learning', 'Devops', 'Other'];
 
   ngOnInit(): void {
   }
-
-  
 
 }

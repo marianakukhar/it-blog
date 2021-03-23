@@ -1,0 +1,59 @@
+<h2 mat-dialog-title>Add new artcile</h2>
+<mat-dialog-content>
+  <form [formGroup]="newArticleForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <!-- <label for="select">Topic</label>
+      <select name="topic" id="topic" formControlName="topic">
+        <option value="" *ngFor = "let topic of topics">{{topic}}</option>
+      </select>  -->
+      <mat-form-field appearance="fill">
+        <mat-label>Topic</mat-label>
+        <mat-select formControlName="topic">
+          <mat-option *ngFor="let topic of topics" [value]="topic">
+            {{topic}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <!--  <div class="form-group">
+     <label for="image">Select image</label>
+      <input type="file" id="file" class="form-control" formControlName="image"> 
+      <mat-form-field appearance="fill">
+        <mat-label>Select</mat-label>
+        <mat-select type="file">
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="two">Second option</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>  -->
+    <div class="form-group">
+      <!-- <label for="title">Title</label>
+      <input type="text" id="ttile" class="form-control" formControlName="title">  -->
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput formControlName="title">
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <!-- <label for="title">Description</label>
+      <textarea name="" id="" cols="60" rows="4" formControlName="desc"></textarea> -->
+      <mat-form-field appearance="fill">
+        <mat-label>Short desription</mat-label>
+        <textarea matInput formControlName="desc"></textarea>
+      </mat-form-field>
+    </div>
+    <div class="form-group">
+      <!-- <label for="text">Full text</label>
+      <textarea name="" id="" cols="60" rows="8" formControlName="full-text"></textarea> -->
+      <mat-form-field appearance="fill">
+        <mat-label>Full text</mat-label>
+        <textarea matInput formControlName="full-text"></textarea>
+      </mat-form-field>
+    </div>
+
+    <button mat-raised-button color="primary" type="submit" [disabled]="!newArticleForm.valid">Submit</button>
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  </form>
+</mat-dialog-content>
+
+

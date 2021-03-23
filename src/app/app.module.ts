@@ -7,28 +7,43 @@ import { SidebarComponent } from './sidebar/sidebar.component';
 import { SidebarModule } from 'ng-sidebar';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { ContentComponent } from './content/content.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
-import { ArticleComponent } from './article/article.component'
+import { ArticlesComponent } from './articles/articles.component'
 import { MatCardModule } from '@angular/material/card';
+import { HttpClientModule } from '@angular/common/http';
+import { MatDialogModule } from '@angular/material/dialog';
+import { DialogComponent } from './dialog/dialog.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import  {MatSelectModule } from '@angular/material/select';
+import { MatInputModule } from '@angular/material/input';
+import { ArticleComponent } from './article/article.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SidebarComponent,
-    ContentComponent,
+    ArticlesComponent,
+    DialogComponent,
     ArticleComponent
   ],
+  entryComponents: [DialogComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
+    HttpClientModule,
     SidebarModule.forRoot(),
     BrowserAnimationsModule,
     MatSidenavModule,
     MatButtonModule,
     MatIconModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]
