@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,9 +8,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent implements OnInit {
   showFiller = false;
-  topics = ['Java', 'Javascript', 'Python', 'UI/UX Design', 'Machine Learning', 'Devops', 'Other'];
+  topics = ['Java', 'Javascript', 'Python', 'Design', 'Devops', 'Other'];
+
+  constructor(private router: Router) {}
 
   ngOnInit(): void {
   }
 
+  onBackHome() {
+    this.router.navigate([''])
+  }
 }

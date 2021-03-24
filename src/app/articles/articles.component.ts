@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { Articles } from '../articles.model';
+import { CommoService } from '../commo.service';
 import { RestService } from '../rest.service';
 
 @Component({
@@ -10,10 +10,18 @@ import { RestService } from '../rest.service';
 })
 export class ArticlesComponent implements OnInit {
   articles: Articles[] = [];
-  constructor(private RestService: RestService,
-    private router: Router) {}
+
+  constructor(private RestService: RestService, private commonService: CommoService) {}
 
   ngOnInit() {
+    this.getAllPosts();
+
+    this.commonService.postAdded_Observable.subscribe(res => {
+      this.getAllPosts();
+    });
+  }
+
+  getAllPosts() {
     this.RestService.getArtticles()
     .subscribe(
       data => {
@@ -23,5 +31,4 @@ export class ArticlesComponent implements OnInit {
       }
     )
   }
-
 }

@@ -15,7 +15,7 @@
 
 .example-sidenav {
   padding: 20px;
-  min-width: 200px;
+  min-width: 220px;
   background-color: #3f51b5;
   border: none;
 }
@@ -38,6 +38,15 @@ mat-icon {
   text-decoration: none;
 
   font-size: 16px;
+  color: white;
+}
+
+.active {
+  color:rgb(238, 235, 235) !important;
+  font-size: 2em !important;
+}
+
+.button {
   color: white;
 }
 

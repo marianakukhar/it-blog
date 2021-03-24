@@ -3,6 +3,13 @@
   width: 100%;
 }
 
+.button {
+  position: absolute;
+  top: 0;
+  left: 60;
+  margin: 10px 30px;
+}
+
 .wrapper {
   display: flex;
   justify-content: center;

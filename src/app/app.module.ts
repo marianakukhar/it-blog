@@ -19,6 +19,7 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import  {MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { ArticleComponent } from './article/article.component';
+import { ArticleByTopicComponent } from './article-by-topic/article-by-topic.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { ArticleComponent } from './article/article.component';
     SidebarComponent,
     ArticlesComponent,
     DialogComponent,
-    ArticleComponent
+    ArticleComponent,
+    ArticleByTopicComponent
   ],
   entryComponents: [DialogComponent],
   imports: [

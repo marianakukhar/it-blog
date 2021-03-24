@@ -1,10 +1,9 @@
 <mat-drawer-container class="example-container" autosize>
   <button type="button" mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
   <mat-drawer #drawer class="example-sidenav" mode="side">
-    <h2>Navigation</h2>
+    <button mat-button class="button" (click) = "onBackHome()">Back to homepage</button>
     <ul class="menu" *ngFor="let topic of topics">
-      <li><a routerLink="">{{ topic }}</a></li>
+      <li><a [routerLink] = "['articles', topic]" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" class="link">{{ topic }}</a></li>
     </ul>
   </mat-drawer>
-
 </mat-drawer-container>

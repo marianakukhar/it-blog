@@ -17,4 +17,8 @@ export class RestService {
   getArticle(id: number) {
     return this.http.get(this.url + "/" + id)
   }
+
+  postArticle(postData: Articles) {
+   return this.http.post(this.url, postData);
+  }
 }

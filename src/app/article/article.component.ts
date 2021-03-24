@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { RestService } from '../rest.service';
+import { Location } from '@angular/common'
 
 @Component({
   selector: 'app-article',
@@ -9,7 +10,7 @@ import { RestService } from '../rest.service';
 })
 export class ArticleComponent implements OnInit {
   article: any;
-  constructor(private route: ActivatedRoute, private RestService: RestService) { }
+  constructor(private route: ActivatedRoute, private RestService: RestService, private location: Location) { }
 
   ngOnInit(): void {
     this.article = {
@@ -20,9 +21,12 @@ export class ArticleComponent implements OnInit {
     .subscribe(
       data => {
         this.article = data;
-        console.log(this.article)
       }
     )
+  }
+
+  onBack() {
+    this.location.back();
   }
 }
 
