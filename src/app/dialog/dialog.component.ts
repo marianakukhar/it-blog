@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Article } from '../articles.model';
-import { CommoService } from '../commo.service';
+import { CommonService } from '../common.service';
 import { RestService } from '../rest.service';
 
 @Component({
@@ -12,7 +12,7 @@ import { RestService } from '../rest.service';
 export class DialogComponent implements OnInit {
   topics = ['Java', 'Javascript', 'Python', 'Design', 'Devops', 'Other'];
   newArticleForm!: FormGroup;
-  constructor(private restService: RestService, private commonService: CommoService) { }
+  constructor(private restService: RestService, private commonService: CommonService) { }
 
   ngOnInit() {
     this.newArticleForm = new FormGroup({
@@ -32,5 +32,4 @@ export class DialogComponent implements OnInit {
       }
     )
   }
-  
 }

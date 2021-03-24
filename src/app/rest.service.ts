@@ -10,7 +10,7 @@ export class RestService {
   constructor(private http: HttpClient) { }
   url: string = "http://localhost:3000/articles"
 
-  getArtticles() {
+  getArticles() {
     return this.http.get<Article[]>(this.url)
   }
 

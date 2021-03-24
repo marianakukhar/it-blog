@@ -4,7 +4,7 @@ import { Subject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class CommoService {
+export class CommonService {
   public postAdded_Observable = new Subject();
   
   constructor() { }

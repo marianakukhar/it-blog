@@ -22,7 +22,7 @@ export class ArticleByTopicComponent implements OnInit {
         (params: Params) => {
           console.log(params.topic);
           this.topic = params.topic;
-          this.RestService.getArtticles().subscribe(data => {
+          this.RestService.getArticles().subscribe(data => {
             console.log(data);
             this.article = data.find(el => el.topic === this.topic);
             for (const article of data) {

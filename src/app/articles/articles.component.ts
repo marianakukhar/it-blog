@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Article } from '../articles.model';
-import { CommoService } from '../commo.service';
+import { CommonService } from '../common.service';
 import { DialogComponent } from '../dialog/dialog.component';
 import { RestService } from '../rest.service';
 
@@ -14,11 +14,11 @@ import { RestService } from '../rest.service';
 export class ArticlesComponent implements OnInit {
   articles: Article[] = [];
 
-  constructor(private RestService: RestService, private commonService: CommoService, private route: ActivatedRoute, public dialog: MatDialog) {}
+  constructor(private RestService: RestService, private commonService: CommonService, private route: ActivatedRoute, public dialog: MatDialog) {}
 
   ngOnInit() {
     this.getAllPosts();
-    this.commonService.postAdded_Observable.subscribe(res => {
+    this.commonService.postAdded_Observable.subscribe((res: any) => {
       this.getAllPosts();
     });
 
@@ -31,7 +31,7 @@ export class ArticlesComponent implements OnInit {
   }
 
   getAllPosts() {
-    this.RestService.getArtticles()
+    this.RestService.getArticles()
     .subscribe(
       data => {
         this.articles = data;
