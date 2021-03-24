@@ -6,7 +6,7 @@
         <mat-label>Topic</mat-label>
         <mat-select formControlName="topic">
           <mat-option *ngFor="let topic of topics" [value]="topic">
-            {{topic}}
+            {{ topic }}
           </mat-option>
         </mat-select>
       </mat-form-field>
@@ -35,7 +35,16 @@
         <textarea matInput formControlName="text"></textarea>
       </mat-form-field>
     </div>
-    <button mat-raised-button color="primary" type="submit" [disabled]="!newArticleForm.valid" data-dismiss="modal" mat-dialog-close>Submit</button>
-    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button 
+      mat-raised-button 
+      color="primary" 
+      type="submit" 
+      [disabled]="!newArticleForm.valid" 
+      data-dismiss="modal" 
+      mat-dialog-close>Submit</button>
+    <button 
+      mat-raised-button 
+      color="warn" 
+      mat-dialog-close>Close</button>
   </form>
 </mat-dialog-content>

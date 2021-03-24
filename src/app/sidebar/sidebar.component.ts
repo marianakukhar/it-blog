@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router } from '@angular/router';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,7 +7,6 @@ import { Router } from '@angular/router';
   styleUrls: ['./sidebar.component.css']
 })
 export class SidebarComponent implements OnInit {
-  showFiller = false;
   topics = ['Java', 'Javascript', 'Python', 'Design', 'Devops', 'Other'];
 
   constructor(private router: Router) {}

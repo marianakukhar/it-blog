@@ -11,5 +11,5 @@ export class CommoService {
 
   notifyPostAddition(){
     this.postAdded_Observable.next();
-}
+  }
 }

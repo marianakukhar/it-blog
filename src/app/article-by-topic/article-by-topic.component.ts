@@ -1,6 +1,6 @@
-import { Component, OnChanges, OnInit } from '@angular/core';
+import { Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { ActivatedRoute, Params, Router } from '@angular/router';
-import { Articles } from '../articles.model';
+import { Article } from '../articles.model';
 import { RestService } from '../rest.service';
 
 @Component({
@@ -8,50 +8,43 @@ import { RestService } from '../rest.service';
   templateUrl: './article-by-topic.component.html',
   styleUrls: ['./article-by-topic.component.css']
 })
-export class ArticleByTopicComponent implements OnInit {
-  articles: Articles[] = [];
-  articlesAvailable: boolean = true;
+export class ArticleByTopicComponent implements OnInit, OnChanges {
+  articles: Article[] = [];
+  topic: string = '';
 
   constructor(private RestService: RestService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    let topic = this.route.snapshot.params['topic']
+    /* let topic = this.route.snapshot.params['topic']; */
+    this.route.params
+        .subscribe(
+      (params: Params) => {
+        console.log(params['topic']);
+         this.topic = params['topic'];
+      }
+    )
+
     this.RestService.getArtticles()
     .subscribe(
       data => {
         for(let article of data) {
-          if (article.topic === topic) {
+          if (article.topic === this.topic) {
             this.articles.push(article);
-            if (this.articles.length === 0) {
-              this.articlesAvailable = false;
-            }
           }
         }
       }, error => {
         console.log(error);
-      }
+        }
       )
+    }
+  
+    ngOnChanges(changes: SimpleChanges): void {
       
-      /* this.route.params
-      .subscribe(
-        (params: Params) => {
-          this.articles = [];
-          topic = params['topic']
-          this.RestService.getArtticles()
-    .subscribe(
-      data => {
-        for(let article of data) {
-          if (article.topic === topic) {
-            this.articles.push(article);
-          }
-        }
-      }, error => {
-        console.log(error);
-      }
-      )
-        }
-      ) */
-    } 
+    }
+
+    getTopic() {
+      
+    }
 
   }
 

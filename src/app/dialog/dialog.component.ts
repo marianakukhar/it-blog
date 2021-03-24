@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Articles } from '../articles.model';
+import { Article } from '../articles.model';
 import { CommoService } from '../commo.service';
 import { RestService } from '../rest.service';
 
@@ -24,7 +24,7 @@ export class DialogComponent implements OnInit {
     })
   }
 
-  onSubmit(postData: Articles) {
+  onSubmit(postData: Article) {
     this.restService.postArticle(postData)
     .subscribe(
       data => {

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Articles } from './articles.model';
+import { Article } from './articles.model';
 
 @Injectable({
   providedIn: 'root'
@@ -11,14 +11,14 @@ export class RestService {
   url: string = "http://localhost:3000/articles"
 
   getArtticles() {
-    return this.http.get<Articles[]>(this.url)
+    return this.http.get<Article[]>(this.url)
   }
 
   getArticle(id: number) {
     return this.http.get(this.url + "/" + id)
   }
 
-  postArticle(postData: Articles) {
+  postArticle(postData: Article) {
    return this.http.post(this.url, postData);
   }
 }

@@ -21,25 +21,30 @@ mat-card {
   background-color: rgb(238, 235, 235);
 }
 
-img{ 
-  opacity:0.5;
-  filter: alpha(opacity=0) rgb(255, 255, 255);
+img { 
+  filter: brightness(0.4);
   width: 100%;
 }
 
 .image {
 	position: relative;
-  height: 300px;
+  height: 350px;
   overflow: hidden;
   margin-bottom: 30px;
 }
 
 h2 {
 	position: absolute;
-	top	: 250px;
+	top	: 200px;
 	left	: 0;
 	width	: 100%;
   font-size: 4vw;
+}
+
+.article-title {
+  color: white;
+  font-weight: bold;
+  line-height: 1.1em;
 }
 
 .article-text-block {
