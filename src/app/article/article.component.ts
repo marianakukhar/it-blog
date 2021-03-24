@@ -28,5 +28,3 @@ export class ArticleComponent implements OnInit {
     this.location.back();
   }
 }
-
-

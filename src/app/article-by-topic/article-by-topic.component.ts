@@ -8,45 +8,29 @@ import { RestService } from '../rest.service';
   templateUrl: './article-by-topic.component.html',
   styleUrls: ['./article-by-topic.component.css']
 })
-export class ArticleByTopicComponent implements OnInit, OnChanges {
+export class ArticleByTopicComponent implements OnInit {
   articles: Article[] = [];
   topic: string = '';
+  article: any;
 
-  constructor(private RestService: RestService, private route: ActivatedRoute, private router: Router) { }
+  constructor(private RestService: RestService, private route: ActivatedRoute) {
+   }
 
   ngOnInit(): void {
-    /* let topic = this.route.snapshot.params['topic']; */
     this.route.params
-        .subscribe(
-      (params: Params) => {
-        console.log(params['topic']);
-         this.topic = params['topic'];
-      }
-    )
-
-    this.RestService.getArtticles()
-    .subscribe(
-      data => {
-        for(let article of data) {
-          if (article.topic === this.topic) {
-            this.articles.push(article);
-          }
-        }
-      }, error => {
-        console.log(error);
+      .subscribe(
+        (params: Params) => {
+          console.log(params.topic);
+          this.topic = params.topic;
+          this.RestService.getArtticles().subscribe(data => {
+            console.log(data);
+            this.article = data.find(el => el.topic === this.topic);
+            for (const article of data) {
+                this.articles = data.filter(el => el.topic === this.topic);
+                console.log(this.articles);
+            }
+          })
         }
       )
-    }
-  
-    ngOnChanges(changes: SimpleChanges): void {
-      
-    }
-
-    getTopic() {
-      
-    }
-
-  }
-
-
-  
+   }
+  } 

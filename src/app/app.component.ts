@@ -13,8 +13,4 @@ export class AppComponent {
 
   constructor(public dialog: MatDialog) {}
   
-  openDialog() {
-    this.dialog.open(DialogComponent);
-  }
-  
 }

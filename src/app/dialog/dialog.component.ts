@@ -26,9 +26,9 @@ export class DialogComponent implements OnInit {
 
   onSubmit(postData: Article) {
     this.restService.postArticle(postData)
-    .subscribe(
-      data => {
-        this.commonService.notifyPostAddition();
+      .subscribe(
+        data => {
+          this.commonService.notifyPostAddition();
       }
     )
   }

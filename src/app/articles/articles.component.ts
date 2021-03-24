@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { ActivatedRoute, Params } from '@angular/router';
 import { Article } from '../articles.model';
 import { CommoService } from '../commo.service';
+import { DialogComponent } from '../dialog/dialog.component';
 import { RestService } from '../rest.service';
 
 @Component({
@@ -12,7 +14,7 @@ import { RestService } from '../rest.service';
 export class ArticlesComponent implements OnInit {
   articles: Article[] = [];
 
-  constructor(private RestService: RestService, private commonService: CommoService, private route: ActivatedRoute) {}
+  constructor(private RestService: RestService, private commonService: CommoService, private route: ActivatedRoute, public dialog: MatDialog) {}
 
   ngOnInit() {
     this.getAllPosts();
@@ -37,5 +39,9 @@ export class ArticlesComponent implements OnInit {
         console.log(error);
       }
     )
+  }
+
+  openDialog() {
+    this.dialog.open(DialogComponent);
   }
 }
